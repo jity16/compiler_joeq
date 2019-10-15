@@ -61,27 +61,32 @@ public class MySolver implements Flow.Solver {
             /*get predecessors of current quad*/
             Quad currentQuad = qi.next();
 
+            /*variable to hold the new in*/
             Flow.DataflowObject currentQuadIn = analysis.newTempVar();
             currentQuadIn.setToTop();
 
+            /* meet with the OUTs of all predecessors to compute IN */
             Iterator<Quad> predit = qi.predecessors();
-
-            while(predit.hasNext()){
-                Quad pred = predit.next();
-                if(pred == null){
-                    currentQuadIn.meetWith(analysis.getEntry());
-                }
-                else{
-                    currentQuadIn.meetWith(analysis.getOut(pred));
+            if(predit == null){
+                currentQuadIn.meetWith((analysis.getEntry()));
+            }else {
+                while (predit.hasNext()) {
+                    Quad pred = predit.next();
+                    if (pred == null) {
+                        currentQuadIn.meetWith(analysis.getEntry());
+                    } else {
+                        currentQuadIn.meetWith(analysis.getOut(pred));
+                    }
                 }
             }
 
             analysis.setIn(currentQuad,currentQuadIn);
+            /*old OUT use for comparison*/
             Flow.DataflowObject oldOut = analysis.getOut(currentQuad);
-            //use interface processQuad to deal with in/out after setting
+            /*use interface processQuad to deal with in/out after setting*/
             analysis.processQuad(currentQuad);
             Flow.DataflowObject newOut = analysis.getOut(currentQuad);
-            //find whether out has been changed
+            /*find whether out has been changed*/
             if(!oldOut.equals(newOut)){
                 changed = true;
             }
