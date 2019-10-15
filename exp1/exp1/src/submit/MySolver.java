@@ -36,8 +36,31 @@ public class MySolver implements Flow.Solver {
         /***********************
          * Your code goes here *
          ***********************/
-
+        boolean changed = true;
+        if(this.analysis.isForward()){
+            while(changed){
+                changed = forwardCFG(cfg);
+            }
+        }
+        else{
+            while(changed){
+                changed = backwardCFG(cfg);
+            }
+        }
         // this needs to come last.
         analysis.postprocess(cfg);
     }
+    private boolean forwardCFG(ControlFlowGraph cfg){
+        boolean changed = false;
+        
+
+
+        return changed;
+    }
+
+    private boolean backwardCFG(ControlFlowGraph cfg){
+        boolean changed = false;
+        return changed;
+    }
 }
+
