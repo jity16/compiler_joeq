@@ -3,6 +3,7 @@ package submit;
 // some useful things to import. add any additional imports you need.
 import joeq.Compiler.Quad.*;
 import flow.Flow;
+import java.util.Iterator;
 
 /**
  * Skeleton class for implementing the Flow.Solver interface.
@@ -39,22 +40,63 @@ public class MySolver implements Flow.Solver {
         boolean changed = true;
         if(this.analysis.isForward()){
             while(changed){
-                changed = forwardCFG(cfg);
+                changed = forwardCFG(cfg);  //forward dataflow analysis
             }
         }
         else{
             while(changed){
-                changed = backwardCFG(cfg);
+                changed = backwardCFG(cfg); //backward dataflow analysis
             }
         }
         // this needs to come last.
         analysis.postprocess(cfg);
     }
+
     private boolean forwardCFG(ControlFlowGraph cfg){
         boolean changed = false;
-        
 
+        QuadIterator qi = new QuadIterator(cfg,true);
+        Flow.DataflowObject Exit = analysis.newTempVar();
+        while(qi.hasNext()){
+            /*get predecessors of current quad*/
+            Quad currentQuad = qi.next();
 
+            Flow.DataflowObject currentQuadIn = analysis.newTempVar();
+            currentQuadIn.setToTop();
+
+            Iterator<Quad> predit = qi.predecessors();
+
+            while(predit.hasNext()){
+                Quad pred = predit.next();
+                if(pred == null){
+                    currentQuadIn.meetWith(analysis.getEntry());
+                }
+                else{
+                    currentQuadIn.meetWith(analysis.getOut(pred));
+                }
+            }
+
+            analysis.setIn(currentQuad,currentQuadIn);
+            Flow.DataflowObject oldOut = analysis.getOut(currentQuad);
+            //use interface processQuad to deal with in/out after setting
+            analysis.processQuad(currentQuad);
+            Flow.DataflowObject newOut = analysis.getOut(currentQuad);
+            //find whether out has been changed
+            if(!oldOut.equals(newOut)){
+                changed = true;
+            }
+
+            /*find all exit block*/
+            Iterator<Quad> succit = qi.successors();
+            while(succit.hasNext()){
+                Quad succ = succit.next();
+                if(succ == null){
+                    Exit.meetWith(analysis.getOut(currentQuad));
+                    break;
+                }
+            }
+        }
+        analysis.setExit(Exit);
         return changed;
     }
 
