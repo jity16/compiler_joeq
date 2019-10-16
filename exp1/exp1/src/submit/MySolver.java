@@ -107,6 +107,54 @@ public class MySolver implements Flow.Solver {
 
     private boolean backwardCFG(ControlFlowGraph cfg){
         boolean changed = false;
+        QuadIterator qi = new QuadIterator(cfg,false);
+        Flow.DataflowObject Entry = analysis.newTempVar();
+        while(qi.hasPrevious()){
+            /*get successors of current quad*/
+            Quad currentQuad = qi.previous();
+
+            /*variable to hold the new out*/
+            Flow.DataflowObject currentQuadOut = analysis.newTempVar();
+            currentQuadOut.setToTop();
+
+            /* meet with the Ins of all successors to compute OUT */
+            Iterator<Quad> succit = qi.successors();
+            if(succit == null){
+                currentQuadOut.meetWith((analysis.getExit()));
+            }else {
+                while (succit.hasNext()) {
+                    Quad succ = succit.next();
+                    if (succ == null) {
+                        currentQuadOut.meetWith(analysis.getExit());
+                    } else {
+                        currentQuadOut.meetWith(analysis.getIn(succ));
+                    }
+                }
+            }
+
+            analysis.setOut(currentQuad,currentQuadOut);
+            /*old IN use for comparison*/
+            Flow.DataflowObject oldIn = analysis.getIn(currentQuad);
+            /*use interface processQuad to deal with in/out after setting*/
+            analysis.processQuad(currentQuad);
+            Flow.DataflowObject newIn = analysis.getIn(currentQuad);
+            /*find whether out has been changed*/
+            if(!oldIn .equals(newIn)){
+                changed = true;
+            }
+
+            /*find all entry block*/
+            Iterator<Quad> predit = qi.predecessors();
+            while(predit.hasNext()){
+                Quad pred = predit.next();
+                if(pred == null){
+                    Entry.meetWith(analysis.getIn(currentQuad));
+                    break;
+                }
+            }
+        }
+        analysis.setEntry(Entry);
+
         return changed;
     }
 }
