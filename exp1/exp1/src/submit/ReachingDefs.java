@@ -1,8 +1,12 @@
 package submit;
 
 // some useful things to import. add any additional imports you need.
+import java.util.Set;
+import java.util.TreeSet;
 import joeq.Compiler.Quad.*;
 import flow.Flow;
+
+
 
 /**
  * Skeleton class for implementing a reaching definition analysis
@@ -14,16 +18,43 @@ public class ReachingDefs implements Flow.Analysis {
      * Class for the dataflow objects in the ReachingDefs analysis.
      * You are free to change this class or move it to another file.
      */
-    public class MyDataflowObject implements Flow.DataflowObject {
+    public static class MyDataflowObject implements Flow.DataflowObject {
         /**
          * Methods from the Flow.DataflowObject interface.
          * See Flow.java for the meaning of these methods.
          * These need to be filled in.
          */
-        public void setToTop() {}
-        public void setToBottom() {}
-        public void meetWith (Flow.DataflowObject o) {}
-        public void copy (Flow.DataflowObject o) {}
+        private Set<String> set;
+        public static Set<String> universalSet;
+        public MyDataflowObject(){ set = new TreeSet<String>();}
+
+
+        public void setToTop() { set = new TreeSet<String>(); }
+        public void setToBottom() { set = new TreeSet<String>(universalSet); }
+        
+        public void meetWith (Flow.DataflowObject o) {
+            MyDataflowObject a = (MyDataflowObject) o;
+            set.addAll(a.set);
+        }
+
+        public void copy (Flow.DataflowObject o) {
+            MyDataflowObject a = (MyDataflowObject) o;
+            set = new TreeSet<String>(a.set);
+        }
+
+        @Override
+        public boolean equals(Object o){
+            if(o instanceof MyDataflowObject){
+                MyDataflowObject a = (MyDataflowObject) o;
+                return set.equals(a.set);
+            }
+            return false;
+        }
+
+        @Override
+        public  int hashCode(){
+            return set.hashCode();
+        }
 
         /**
          * toString() method for the dataflow objects which is used
@@ -36,6 +67,9 @@ public class ReachingDefs implements Flow.Analysis {
          */
         @Override
         public String toString() { return ""; }
+
+        public void genVar(String v){set.add(v);}
+        public void killVar(String v){set.remove(v);}
     }
 
     /**
