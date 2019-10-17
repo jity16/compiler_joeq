@@ -149,14 +149,41 @@ public class ReachingDefs implements Flow.Analysis {
      * These need to be filled in.
      */
     public boolean isForward () { return false; }
-    public Flow.DataflowObject getEntry() { return null; }
-    public Flow.DataflowObject getExit() { return null; }
-    public void setEntry(Flow.DataflowObject value) {}
-    public void setExit(Flow.DataflowObject value) {}
-    public Flow.DataflowObject getIn(Quad q) { return null; }
-    public Flow.DataflowObject getOut(Quad q) { return null; }
-    public void setIn(Quad q, Flow.DataflowObject value) {}
-    public void setOut(Quad q, Flow.DataflowObject value) {}
-    public Flow.DataflowObject newTempVar() { return null; }
-    public void processQuad(Quad q) {}
+    public Flow.DataflowObject getEntry() { 
+        Flow.DataflowObject result = newTempVar();
+        result.copy(entry);
+        return result;
+    }
+    public Flow.DataflowObject getExit() {
+        Flow.DataflowObject result = newTempVar();
+        result.copy(exit);
+        return result;
+    }
+    public void setEntry(Flow.DataflowObject value) {
+        entry.copy(value);
+    }
+    public void setExit(Flow.DataflowObject value) {
+        exit.copy(value);
+    }
+    public Flow.DataflowObject getIn(Quad q) {
+        Flow.DataflowObject result = newTempVar();
+        result.copy(in[q.getID()]);
+        return result;
+    }
+    public Flow.DataflowObject getOut(Quad q) {
+        Flow.DataflowObject result = newTempVar();
+        result.copy(out[q.getID()]);
+        return result;
+    }
+    public void setIn(Quad q, Flow.DataflowObject value) {
+        in[q.getID()].copy(value);
+    }
+    public void setOut(Quad q, Flow.DataflowObject value) {
+        out[q.getID()].copy(value);
+    }
+    public Flow.DataflowObject newTempVar() {return new MyDataflowObject();}
+    
+    public void processQuad(Quad q) {
+        
+    }
 }
