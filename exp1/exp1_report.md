@@ -69,11 +69,32 @@ public void visitCFG(ControlFlowGraph cfg) {
 
 
 
+**参考**
+
+参考了`joeq`分析框架源码中`joeq/Compil3r/Quad/DataflowFramework.java`实现的`visitCFG`接口，不得不说，官方源码真的太有用了，之前无从入手，照着写就成功了，在数据流算法中的迭代过程参照了它的实现和思路。
+
+
+
+
+
+---
+
 
 
 #### 任务2
 
 ##### 要求
 
+完成 `submit.ReachingDefs`。它位于 `src/submit/ReachingDefs.java`。在 `submit.MySolver` 上运行时它应输出和 `test/Test*.rd.out` 相同的正确结果。
 
+
+
+##### 实现
+
+* 参照框架`Flow.Liveness`实现`setToTop`, `setToBottom`, `copy`, `equals`, `hashCode`, `toString`, `genDef`, `killDef`, `isForward`等诸多函数接口
+* 与`Liveness`不同的是：
+  * `Reaching Definition`分析是前向数据流分析
+  * 与`Liveness`类似，我们在`preprocess`中设置集合`s`,但`ReachingDef`中集合存储的是`Quad`的`id`信息，用`Integer`类型处理
+  * 设置了一个`Defmap`来实现`Registers`和`Quad id`的映射
+  * 
 
