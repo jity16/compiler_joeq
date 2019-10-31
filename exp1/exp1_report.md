@@ -142,5 +142,44 @@ public void visitCFG(ControlFlowGraph cfg) {
 
 #### 任务 3
 
+##### 要求
 
+完成 `submit.Faintness` 以使其正确运行`Faint Variable Analysis`。它位于 `src/submit/Faintness.java`。
+
+
+
+##### 实现
+
+* 仿照`liveness`实现`preprocess`，实现方式与`liveness`一样
+
+  * 需要注意的是`faintness`和`liveness`实际上相反的关系，`faintness`的交汇运算是交集，所以顶元素是全集，初始化时我们是`setToTop`的，因此也是要初始化为全集
+
+    ~~~java
+    public MyDataflowObject(){ set = new TreeSet<String>(universalSet); }
+    public void setToTop() { set = new TreeSet<String>(universalSet); }
+    public void setToBottom() { set = new TreeSet<String>(); }
+    ~~~
+
+* `processQuad`实现框架与`liveness`一致，为之设置`TransferFunction`
+
+  ~~~java
+  public void processQuad(Quad q) {
+    transferfn.val.copy(out[q.getID()]);
+    transferfn.visitQuad(q);
+    in[q.getID()].copy(transferfn.val);
+  }
+  ~~~
+
+  * `TransferFunction`实现
+
+    * 因为我们只对 `Operator.Move` 和 `Operator.Binary` 两类指令做`faintness`传递
+
+      ~~~java
+       if ((q.getOperator() instanceof Operator.Move) || (q.getOperator() instanceof Operator.Binary))
+      ~~~
+
+      我们需要判断`def`是否为`Faintness`变量
+
+    * 如果并非`Faintness`变量，我们不需要做传递，只需要按照`Liveness`进行`gen`和`kill`的更新即可。需要注意的是，`Faintness`分析是不活跃分析，所以`gen`和`kill`与`liveness`恰好相反
+    * 如果并非`Move`和`Binary`指令，则只需要进行`gen`和`kill`的更新即可。
 
