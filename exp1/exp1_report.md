@@ -183,3 +183,90 @@ public void visitCFG(ControlFlowGraph cfg) {
     * 如果并非`Faintness`变量，我们不需要做传递，只需要按照`Liveness`进行`gen`和`kill`的更新即可。需要注意的是，`Faintness`分析是不活跃分析，所以`gen`和`kill`与`liveness`恰好相反
     * 如果并非`Move`和`Binary`指令，则只需要进行`gen`和`kill`的更新即可。
 
+
+
+##### 结果
+
+* 测试`Flow Faintness TestFaintness`均与正确输出一致，测试通过
+
+
+
+---
+
+
+
+#### 任务 4
+
+##### 要求
+
+在 `submit.TestFaintness` 中添加用于测试 `Faint Variable Analysis` 的代码。在每个方法的注释中注明该方法中所有的 faint variable 及原因。`test/TestFaintness.out` 中提供了初始的测试代码的正确输出，但你应当继续添加新的测试代码以覆盖尽可能多的情形。
+
+
+
+##### 实现
+
+**test2**
+
+* `faint`变量为`x,z`:
+  * `y`被用于返回，所以不是`faint`变量
+  * 因为`x`被定值后由常量`IConst 2`来代替，`x`是`dead`
+  * `z`定值后未被使用，不活跃
+
+~~~c++
+int test2() {
+  int x = 2;			//x is faint
+  int y = x + 2;	//y is not faint, because y is used in return
+  int z = x + y;  //z is faint
+  return y;
+}
+~~~
+
+
+
+**test3**
+
+* `y`是`faint`变量，但是`x`,`i`不是：
+  * `x`被用于返回，所以不是
+  * `i`被用于循环条件，所以不是
+  * `y`定值后未被使用，所以是不活跃的也是`faint`变量
+
+~~~c++
+int test3(){
+  int x = 1;      //x is not faint, because x is used in return
+  int y = 2;      //y is faint
+  int i = 0;      //i is not faint, because i is used in loop condition test
+  while(i < 5){
+    i ++;
+  }
+  return x;
+}
+~~~
+
+
+
+**test4**
+
+* `a`,`b`,`y`,`z`是`faint`，`x`不是`faint`变量
+  * 这里参数`a`,`b`均未使用，故是`dead`
+  * 根据传递性，`z`->`x`,`y`都是`faint`变量
+
+~~~c++
+int test4(int a, int b , int x, int y){
+  //a , b is faint
+  x = 0;          //x is faint
+  y = x + 1;      //y is faint
+  int z = x + y;  //z is faint
+  return 0;
+}
+~~~
+
+
+
+---
+
+
+
+#### 参考资料
+
+1. `joeq`的`helpdoc`和官方源码：http://joeq.sourceforge.net/apidocs/index.html
+2. https://github.com/songhan/CS243
