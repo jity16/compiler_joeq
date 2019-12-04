@@ -59,7 +59,7 @@ public class RedundantNullCheck implements Flow.Analysis{
      * @param cfg  The control flow graph we are going to process.
      */
     public void preprocess(ControlFlowGraph cfg) {
-        System.out.println(cfg.getMethod().getName().toString());
+        System.out.print(cfg.getMethod().getName().toString());
         /* Generate initial conditions. */
         QuadIterator qit = new QuadIterator(cfg);
         int max = 0;
@@ -135,7 +135,7 @@ public class RedundantNullCheck implements Flow.Analysis{
         for(Integer id : nullset){
             System.out.print(" "+id);
         }
-        System.out.println("BUG: why has no output!!!!!");
+        System.out.println();
     }
 
     public boolean isForward() {
@@ -204,11 +204,11 @@ public class RedundantNullCheck implements Flow.Analysis{
         public void visitQuad(Quad q) {
             Operator op = q.getOperator();
             if(op instanceof Operator.NullCheck) {
-                for (RegisterOperand use : q.getDefinedRegisters()) {
+                for (RegisterOperand use : q.getUsedRegisters()) {
                     val.genVar(use.getRegister().toString());
                 }
             }else{
-                for (RegisterOperand def : q.getUsedRegisters()) {
+                for (RegisterOperand def : q.getDefinedRegisters()) {
                     val.killVar(def.getRegister().toString());
                 }
             }
