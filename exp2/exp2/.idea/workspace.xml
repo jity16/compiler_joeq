@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86b3f3a9-d62e-4cd6-b124-48c7af3ef6a6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,9 +17,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/flow/Faintness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
+            <state relative-caret-position="191">
+              <caret line="200" column="11" lean-forward="true" selection-start-line="200" selection-start-column="11" selection-end-line="200" selection-end-column="11" />
               <folding>
+                <element signature="e#1616#1624#0" expanded="true" />
                 <element signature="e#8564#8565#0" expanded="true" />
                 <element signature="e#8610#8611#0" expanded="true" />
               </folding>
@@ -55,11 +57,17 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="413" />
-    <option name="y" value="62" />
-    <option name="width" value="1293" />
-    <option name="height" value="812" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="167" />
+    <option name="y" value="41" />
+    <option name="width" value="929" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -69,8 +77,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -112,8 +120,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -128,7 +136,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.extra">
+  <component name="RunManager" selected="Application.print">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -201,25 +209,56 @@
       <option name="presentableId" value="Default" />
       <updated>1540027787618</updated>
       <workItem from="1574237933755" duration="800000" />
+      <workItem from="1575374821168" duration="633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="800000" />
+    <option name="totallyTimeSpent" value="1433000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="413" y="62" width="1293" height="812" extended-state="1" />
-    <editor active="true" />
+    <frame x="167" y="41" width="929" height="728" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3461231" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2853907" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41235393" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="JProfiler" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32554257" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.033975083" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2853907" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.41330424" />
@@ -232,7 +271,8 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32715377" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -241,8 +281,9 @@
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Maven" order="8" />
-    </layout>
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info active="true" anchor="right" id="Maven" order="9" visible="true" weight="0.033975083" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -346,9 +387,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/flow/Faintness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
+        <state relative-caret-position="191">
+          <caret line="200" column="11" lean-forward="true" selection-start-line="200" selection-start-column="11" selection-end-line="200" selection-end-column="11" />
           <folding>
+            <element signature="e#1616#1624#0" expanded="true" />
             <element signature="e#8564#8565#0" expanded="true" />
             <element signature="e#8610#8611#0" expanded="true" />
           </folding>
@@ -402,7 +444,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -419,7 +461,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
