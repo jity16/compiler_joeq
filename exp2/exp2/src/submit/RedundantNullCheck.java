@@ -114,7 +114,28 @@ public class RedundantNullCheck implements Flow.Analysis{
      * @param cfg  Unused.
      */
     public void postprocess(ControlFlowGraph cfg) {
-        // Output
+        Set<Integer> nullset = new TreeSet<Integer>();
+        QuadIterator qit = new QuadIterator(cfg,true);
+        while(qit.hasNext()){
+            Quad q = qit.next();
+            int id = q.getID();
+            Operator op = q.getOperator();
+            if(op instanceof Operator.NullCheck){
+                boolean isRebundant = true;
+                for(RegisterOperand use : q.getUsedRegisters()){
+                    if(!in[id].contains(use.getRegister().toString())){
+                        isRebundant = false;
+                    }
+                }
+                if(isRebundant){
+                    nullset.add(id);
+                }
+            }
+        }
+        for(Integer id : nullset){
+            System.out.print(" "+id);
+        }
+        System.out.println();
     }
 
     public boolean isForward() {
