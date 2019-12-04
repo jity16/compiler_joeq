@@ -135,7 +135,7 @@ public class RedundantNullCheck implements Flow.Analysis{
         for(Integer id : nullset){
             System.out.print(" "+id);
         }
-        System.out.println();
+        System.out.println("BUG: why has no output!!!!!");
     }
 
     public boolean isForward() {
