@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a3bd195c-b3bc-4fee-9bc4-79e19ace5199" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

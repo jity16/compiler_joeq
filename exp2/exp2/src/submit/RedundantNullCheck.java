@@ -5,6 +5,10 @@ import joeq.Compiler.Quad.*;
 import joeq.Compiler.Quad.Operand.*;
 import flow.Flow;
 
+/**
+ * Skeleton class for implementing a faint variable analysis
+ * using the Flow.Analysis interface.
+ */
 public class RedundantNullCheck implements Flow.Analysis{
     public static class MyDataflowObject implements Flow.DataflowObject {
         private Set<String> set;
@@ -37,15 +41,6 @@ public class RedundantNullCheck implements Flow.Analysis{
             return set.hashCode();
         }
 
-        /**
-         * toString() method for the dataflow objects which is used
-         * by postprocess() below.  The format of this method must
-         * be of the form "[REG0, REG1, REG2, ...]", where each REG is
-         * the identifier of a register, and the list of REGs must be sorted.
-         * See src/test/TestFaintness.out for example output of the analysis.
-         * The output format of your reaching definitions analysis must
-         * match this exactly.
-         */
         @Override
         public String toString() { return set.toString(); }
         public void genVar(String v) { set.add(v); }
@@ -58,7 +53,11 @@ public class RedundantNullCheck implements Flow.Analysis{
     private MyDataflowObject[] in, out;
     private MyDataflowObject entry, exit;
 
-
+    /**
+     * This method initializes the datflow framework.
+     *
+     * @param cfg  The control flow graph we are going to process.
+     */
     public void preprocess(ControlFlowGraph cfg) {
         System.out.println(cfg.getMethod().getName().toString());
         /* Generate initial conditions. */
@@ -100,12 +99,22 @@ public class RedundantNullCheck implements Flow.Analysis{
             out[i] = new MyDataflowObject();
         }
 
-//        System.out.println("Initialization completed.");
+        //initial value : out[entry] = null
+        entry.setToBottom();
+
     }
 
-    //To Do ?????
+    /**
+     * This method is called after the fixpoint is reached.
+     * It must print out the dataflow objects associated with
+     * the entry, exit, and all interior points of the CFG.
+     * Unless you modify in, out, entry, or exit you shouldn't
+     * need to change this method.
+     *
+     * @param cfg  Unused.
+     */
     public void postprocess(ControlFlowGraph cfg) {
-
+        // Output
     }
 
     public boolean isForward() {
@@ -172,12 +181,15 @@ public class RedundantNullCheck implements Flow.Analysis{
         MyDataflowObject val;
         @Override
         public void visitQuad(Quad q) {
-            //TO DO ??????
-            for (RegisterOperand use : q.getDefinedRegisters()) {
-                val.genVar(use.getRegister().toString());
-            }
-            for (RegisterOperand def : q.getUsedRegisters()) {
-                val.killVar(def.getRegister().toString());
+            Operator op = q.getOperator();
+            if(op instanceof Operator.NullCheck) {
+                for (RegisterOperand use : q.getDefinedRegisters()) {
+                    val.genVar(use.getRegister().toString());
+                }
+            }else{
+                for (RegisterOperand def : q.getUsedRegisters()) {
+                    val.killVar(def.getRegister().toString());
+                }
             }
         }
     }
