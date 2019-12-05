@@ -113,8 +113,14 @@ public class RedundantNullCheck implements Flow.Analysis{
      *
      * @param cfg  Unused.
      */
+    private boolean doRemove = false;
+    public void setDoRemove(boolean x){
+        this.doRemove = x;
+    }
+
     public void postprocess(ControlFlowGraph cfg) {
         Set<Integer> nullset = new TreeSet<Integer>();
+        nullset = new TreeSet<Integer>();
         QuadIterator qit = new QuadIterator(cfg,true);
         while(qit.hasNext()){
             Quad q = qit.next();
@@ -129,6 +135,9 @@ public class RedundantNullCheck implements Flow.Analysis{
                 }
                 if(isRebundant){
                     nullset.add(id);
+                    if(doRemove){
+                        qit.remove();
+                    }
                 }
             }
         }
@@ -137,6 +146,7 @@ public class RedundantNullCheck implements Flow.Analysis{
         }
         System.out.println();
     }
+
 
     public boolean isForward() {
         return true;

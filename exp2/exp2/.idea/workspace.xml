@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a3bd195c-b3bc-4fee-9bc4-79e19ace5199" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck$TransferFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck$TransferFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exp2/submit/RedundantNullCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/submit/Optimize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/Optimize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="ProjectId" id="1UYFYn1JIFm3GHFc8lPeMLQszmE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -47,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.find">
+  <component name="RunManager" selected="Application.optimize">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -65,7 +65,7 @@
     <configuration name="find" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="submit.FindRedundantNullChecks" />
       <module name="exp2" />
-      <option name="PROGRAM_PARAMETERS" value="test.NullTest" />
+      <option name="PROGRAM_PARAMETERS" value="test.SkipList" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -73,7 +73,7 @@
     <configuration name="optimize" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="submit.Optimize" />
       <module name="exp2" />
-      <option name="PROGRAM_PARAMETERS" value="--main test.QuickSort -p 10 test.QuickSort" />
+      <option name="PROGRAM_PARAMETERS" value="--main test.SkipList -p 10 test.SkipList" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,17 +114,29 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="86b3f3a9-d62e-4cd6-b124-48c7af3ef6a6" name="Default" comment="" />
+      <changelist id="a3bd195c-b3bc-4fee-9bc4-79e19ace5199" name="Default Changelist" comment="" />
       <created>1540027787618</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540027787618</updated>
       <workItem from="1574237933755" duration="800000" />
       <workItem from="1575374821168" duration="633000" />
+      <workItem from="1575525674706" duration="4750000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

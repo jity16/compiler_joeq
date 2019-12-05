@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import flow.FlowSolver;
 
 class Optimize {
     /**
@@ -22,6 +23,12 @@ class Optimize {
             jq_Class clazz = (jq_Class) Helper.load(className);
 
             // TODO: Remove redundant null checks
+            FlowSolver solver = new FlowSolver();
+            RedundantNullCheck nullCheck = new RedundantNullCheck();
+            solver.registerAnalysis(nullCheck);
+            // remove
+            nullCheck.setDoRemove(true);
+            Helper.runPass(clazz,solver);
 
             if (!nullCheckOnly) {
                 // TODO: Run your extra optimizations. (Not required)
