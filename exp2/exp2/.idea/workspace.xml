@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a3bd195c-b3bc-4fee-9bc4-79e19ace5199" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/submit/Optimize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/Optimize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/RedundantNullCheck.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +119,8 @@
       <updated>1540027787618</updated>
       <workItem from="1574237933755" duration="800000" />
       <workItem from="1575374821168" duration="633000" />
-      <workItem from="1575525674706" duration="4750000" />
+      <workItem from="1575525674706" duration="6112000" />
+      <workItem from="1575545911659" duration="2935000" />
     </task>
     <servers />
   </component>
@@ -133,7 +132,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
