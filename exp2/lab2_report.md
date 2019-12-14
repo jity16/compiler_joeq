@@ -59,7 +59,7 @@
 3. 类`FindRedundantNullCheck`
 
    按照注释所提示的实现，获取类名，进行`RedundantNullCheck`分析
-  
+
   ~~~java
   FlowSolver solver = new FlowSolver();
   for(String name : args){
@@ -111,6 +111,8 @@
 
 ##### 实验结果
 
+**测试1**
+
 * 在未进行`Remove`操作时，我们运行`SkipList`，得到运行时信息
 
   ~~~java
@@ -125,3 +127,26 @@
 
 * 我们发现优化效果比较明显，执行`Null Check`的指令次数减少
 
+**测试2**
+
+* 在未进行`Remove`操作时，我们运行`QuickSort`，得到运行时信息
+
+  ~~~java
+  Result of interpretation: Returned: null (null checks: 1800 quad count: 7017)
+  ~~~
+
+* 进行移除冗余块操作时，再次运行，我们的到运行信息
+
+  ~~~java
+  Result of interpretation: Returned: null (null checks: 1724 quad count: 6941)
+  ~~~
+
+* 我们发现优化效果比较明显，执行`Null Check`的指令次数减少
+
+---
+
+
+
+#### Bonus任务
+
+在查看`joeq`框架源码时，我发现它除了

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3bd195c-b3bc-4fee-9bc4-79e19ace5199" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/exp2/submit/Optimize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exp2/submit/Optimize.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/submit/FindRedundantNullChecks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/submit/FindRedundantNullChecks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2_report.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +48,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.optimize">
+  <component name="RunManager" selected="Application.extra">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -55,7 +58,7 @@
     <configuration name="extra" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="submit.Optimize" />
       <module name="exp2" />
-      <option name="PROGRAM_PARAMETERS" value="--main test.QuickSort -p 10 -e test.QuickSort" />
+      <option name="PROGRAM_PARAMETERS" value="--main test.SkipList -p 10 -e test.SkipList" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,7 +123,8 @@
       <workItem from="1574237933755" duration="800000" />
       <workItem from="1575374821168" duration="633000" />
       <workItem from="1575525674706" duration="6112000" />
-      <workItem from="1575545911659" duration="2935000" />
+      <workItem from="1575545911659" duration="3439000" />
+      <workItem from="1576237533114" duration="3705000" />
     </task>
     <servers />
   </component>

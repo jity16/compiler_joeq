@@ -2,7 +2,7 @@ package submit;
 
 import flow.Flow;
 import flow.FlowSolver;
-import  joeq.Class.jq_Class;
+import joeq.Class.jq_Class;
 import joeq.Main.Helper;
 
 import java.util.*;
