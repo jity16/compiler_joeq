@@ -117,7 +117,6 @@ public class RedundantNullCheck implements Flow.Analysis{
     public void setDoRemove(boolean x){
         this.doRemove = x;
     }
-
     public void postprocess(ControlFlowGraph cfg) {
         Set<Integer> nullset = new TreeSet<Integer>();
         nullset = new TreeSet<Integer>();
