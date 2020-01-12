@@ -1,1 +1,0 @@
-cmake .. -DZ3_DIR="/usr/local/bin" -DLLVM_DIR="/usr/local/opt/llvm/lib/cmake/llvm"

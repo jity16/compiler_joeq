@@ -1,4 +1,0 @@
-/Users/jitianying/Desktop/compiler_joeq/Project3/z3Experiment/CMakeFiles/rebuild_cache.dir
-/Users/jitianying/Desktop/compiler_joeq/Project3/z3Experiment/CMakeFiles/edit_cache.dir
-/Users/jitianying/Desktop/compiler_joeq/Project3/z3Experiment/CMakeFiles/z3expr.dir
-/Users/jitianying/Desktop/compiler_joeq/Project3/z3Experiment/CMakeFiles/intrinsics_gen.dir
